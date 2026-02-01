@@ -1,0 +1,41 @@
+{
+    "name": "template-backend",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node --watch --env-file .env --env-file-if-exists .env.development --env-file-if-exists .env.development.local ./src/server.ts",
+        "start": "node --env-file .env --env-file-if-exists .env.production --env-file-if-exists .env.production.local ./src/server.ts",
+        "lint": "eslint . --ext .ts",
+        "format": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ahm4dd/template-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/ahm4dd/template-backend/issues"
+    },
+    "homepage": "https://github.com/ahm4dd/template-backend#readme",
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/node": "^25.1.0",
+        "@typescript-eslint/eslint-plugin": "^8.54.0",
+        "@typescript-eslint/parser": "^8.54.0",
+        "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.5",
+        "prettier": "^3.8.1",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "argon2": "^0.44.0",
+        "express": "^5.2.1",
+        "pino": "^10.3.0",
+        "zod": "^4.3.6"
+    }
+}
