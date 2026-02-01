@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import { config } from './config/env.ts';
-import { createApp } from './config/http/app.ts';
+import { createApp } from './http/app.ts';
 
 const app = createApp();
 
