@@ -1,10 +1,9 @@
-import type { Request, Response } from 'express';
 import { config } from './config/env.ts';
 import { createApp } from './http/app.ts';
 
 const app = createApp();
 
-const server = app.listen(config.PORT, (req: Request, res: Response) => {
+const server = app.listen(config.PORT, () => {
     console.log(`Program running on ${config.PORT}`);
 });
 
