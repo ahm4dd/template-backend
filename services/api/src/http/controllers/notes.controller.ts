@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import { createNoteSchema } from '../../app/dto/notes.ts';
 import type { NotesService } from '../../app/services/notes.service.ts';
-import { NotFoundError } from '../../shared/errors.ts';
+import { NotFoundError } from '@template/shared';
 
 type NoteParams = {
     id: string;

@@ -1,0 +1,40 @@
+{
+    "name": "@template/api",
+    "private": true,
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node --watch --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.development --env-file-if-exists .env.development.local ./src/server.ts",
+        "start": "node --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.production --env-file-if-exists .env.production.local ./src/server.ts",
+        "db:generate": "npx drizzle-kit generate",
+        "db:migrate": "npx drizzle-kit migrate"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ahm4dd/template-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/ahm4dd/template-backend/issues"
+    },
+    "homepage": "https://github.com/ahm4dd/template-backend#readme",
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/node": "^25.1.0",
+        "@types/pg": "^8.16.0",
+        "drizzle-kit": "^0.31.8"
+    },
+    "dependencies": {
+        "argon2": "^0.44.0",
+        "@template/shared": "workspace:*",
+        "drizzle-orm": "^0.45.1",
+        "express": "^5.2.1",
+        "pg": "^8.18.0",
+        "pino": "^10.3.0",
+        "zod": "^4.3.6"
+    }
+}

@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 import { ZodError, z } from 'zod';
-import { AppError } from '../../shared/errors.ts';
+import { AppError, logger } from '@template/shared';
 
 export function errorHandler(err: unknown, req: Request, res: Response, next: NextFunction) {
     if (res.headersSent) {
@@ -26,7 +26,7 @@ export function errorHandler(err: unknown, req: Request, res: Response, next: Ne
         return res.status(err.httpStatus).json({ error });
     }
 
-    console.error(err);
+    logger.error({ err }, 'Unhandled error');
     const error = {
         code: 'INTERNAL_SERVER_ERROR',
         message: 'Unexpected error',

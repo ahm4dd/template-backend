@@ -1,0 +1,30 @@
+{
+    "name": "@template/auth",
+    "version": "0.0.0",
+    "private": true,
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ahm4dd/template-backend.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ahm4dd/template-backend/issues"
+    },
+    "homepage": "https://github.com/ahm4dd/template-backend#readme",
+    "scripts": {
+        "dev": "node --watch --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.development --env-file-if-exists .env.development.local ./src/server.ts",
+        "start": "node --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.production --env-file-if-exists .env.production.local ./src/server.ts"
+    },
+    "dependencies": {
+        "@template/shared": "workspace:*",
+        "better-auth": "^1.4.18",
+        "express": "^5.2.1",
+        "zod": "^4.3.6"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/node": "^25.1.0"
+    }
+}

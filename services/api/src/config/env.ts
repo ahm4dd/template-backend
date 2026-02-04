@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { logger } from '@template/shared';
 
 const ConfigSchema = z.object({
     NODE_ENV: z.string(),
@@ -14,7 +15,7 @@ const parsedConfig = ConfigSchema.safeParse({
 
 if (!parsedConfig.success) {
     const flattenedError = z.flattenError(parsedConfig.error);
-    console.error(flattenedError);
+    logger.error({ error: flattenedError }, 'Invalid environment configuration');
     process.exit(1);
 }
 

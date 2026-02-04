@@ -1,5 +1,5 @@
 /**
- * Base application error. Carries an error code and HTTP status.
+ * Base application error. Carries a code and HTTP status for consistent responses.
  */
 export class AppError extends Error {
     public readonly code: string;
@@ -36,5 +36,14 @@ export class NotFoundError extends AppError {
 export class UnauthorizedError extends AppError {
     constructor(message: string) {
         super('UNAUTHORIZED', message, 401);
+    }
+}
+
+/**
+ * Error thrown when access is forbidden.
+ */
+export class ForbiddenError extends AppError {
+    constructor(message: string) {
+        super('FORBIDDEN', message, 403);
     }
 }

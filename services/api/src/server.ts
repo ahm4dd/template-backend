@@ -1,14 +1,15 @@
 import { config } from './config/env.ts';
 import { createApp } from './http/app.ts';
+import { logger } from '@template/shared';
 
 const app = createApp();
 
 const server = app.listen(config.PORT, () => {
-    console.log(`Program running on ${config.PORT}`);
+    logger.info(`Program running on ${config.PORT}`);
 });
 
 async function shutdown(signal: string) {
-    console.log(`Shutting down with the signal: ${signal}`);
+    logger.info(`Shutting down with the signal: ${signal}`);
     await new Promise((resolve) => server.close(resolve));
 
     process.exit(0);

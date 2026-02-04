@@ -1,0 +1,19 @@
+{
+    "name": "@template/auth-client",
+    "version": "0.0.0",
+    "private": true,
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ahm4dd/template-backend.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ahm4dd/template-backend/issues"
+    },
+    "homepage": "https://github.com/ahm4dd/template-backend#readme",
+    "exports": {
+        ".": "./src/index.ts"
+    }
+}
