@@ -3,36 +3,36 @@ import { ZodError, z } from 'zod';
 import { AppError, logger } from '@template/shared';
 
 export function errorHandler(err: unknown, req: Request, res: Response, next: NextFunction) {
-    if (res.headersSent) {
-        return next(err);
-    }
+  if (res.headersSent) {
+    return next(err);
+  }
 
-    if (err instanceof ZodError) {
-        const error = {
-            code: 'VALIDATION_ERROR',
-            message: 'Invalid input',
-            details: z.flattenError(err),
-            requestId: req.id,
-        };
-        return res.status(400).json({ error });
-    }
-
-    if (err instanceof AppError) {
-        const error = {
-            code: err.code,
-            message: err.message,
-            requestId: req.id,
-        };
-        return res.status(err.httpStatus).json({ error });
-    }
-
-    logger.error({ err }, 'Unhandled error');
+  if (err instanceof ZodError) {
     const error = {
-        code: 'INTERNAL_SERVER_ERROR',
-        message: 'Unexpected error',
-        requestId: req.id,
+      code: 'VALIDATION_ERROR',
+      message: 'Invalid input',
+      details: z.flattenError(err),
+      requestId: req.id,
     };
-    return res.status(500).json({
-        error,
-    });
+    return res.status(400).json({ error });
+  }
+
+  if (err instanceof AppError) {
+    const error = {
+      code: err.code,
+      message: err.message,
+      requestId: req.id,
+    };
+    return res.status(err.httpStatus).json({ error });
+  }
+
+  logger.error({ err }, 'Unhandled error');
+  const error = {
+    code: 'INTERNAL_SERVER_ERROR',
+    message: 'Unexpected error',
+    requestId: req.id,
+  };
+  return res.status(500).json({
+    error,
+  });
 }

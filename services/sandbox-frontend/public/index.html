@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Sandbox</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Auth Sandbox</h1>
+      <p>Disposable frontend to validate email login, Google OAuth start, JWT minting, and protected API calls.</p>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Email signup</h2>
+          <form id="signup-form">
+            <input id="signup-name" type="text" placeholder="Name" value="Dev One" required />
+            <input id="signup-email" type="email" placeholder="Email" value="dev1@example.com" required />
+            <input id="signup-password" type="password" placeholder="Password" value="password1234" required />
+            <button type="submit">Sign up</button>
+          </form>
+          <div id="signup-status" class="status">idle</div>
+        </section>
+
+        <section class="card">
+          <h2>Email login</h2>
+          <form id="signin-form">
+            <input id="signin-email" type="email" placeholder="Email" value="dev1@example.com" required />
+            <input id="signin-password" type="password" placeholder="Password" value="password1234" required />
+            <button type="submit">Sign in</button>
+          </form>
+          <div id="signin-status" class="status">idle</div>
+        </section>
+
+        <section class="card">
+          <h2>Google OAuth</h2>
+          <small>Starts OAuth at auth service and redirects browser to Google consent.</small>
+          <div style="height: 10px"></div>
+          <button id="google-button">Sign in with Google</button>
+          <div id="google-status" class="status">idle</div>
+        </section>
+
+        <section class="card">
+          <h2>Session + Token</h2>
+          <div class="row">
+            <button id="session-button" class="secondary">Get session</button>
+            <button id="token-button" class="secondary">Get API token</button>
+          </div>
+          <div style="height: 10px"></div>
+          <button id="logout-button" class="secondary">Sign out</button>
+          <div id="token-status" class="status">idle</div>
+        </section>
+
+        <section class="card" style="grid-column: 1 / -1">
+          <h2>Protected API test</h2>
+          <form id="note-form">
+            <input id="note-title" type="text" value="Sandbox note" required />
+            <button type="submit">Create note (Bearer JWT)</button>
+          </form>
+          <div id="api-status" class="status">idle</div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

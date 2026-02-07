@@ -9,5 +9,5 @@ export type DbClient = typeof db;
 
 // Helper for tests to supply their own Pool
 export function createDb(client: Pool) {
-    return drizzle({ client, schema });
+  return drizzle({ client, schema });
 }

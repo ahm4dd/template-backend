@@ -1,30 +1,43 @@
 {
-    "name": "@template/auth",
-    "version": "0.0.0",
-    "private": true,
-    "description": "",
-    "license": "MIT",
-    "type": "module",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ahm4dd/template-backend.git"
-    },
-    "bugs": {
-        "url": "https://github.com/ahm4dd/template-backend/issues"
-    },
-    "homepage": "https://github.com/ahm4dd/template-backend#readme",
-    "scripts": {
-        "dev": "node --watch --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.development --env-file-if-exists .env.development.local ./src/server.ts",
-        "start": "node --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.production --env-file-if-exists .env.production.local ./src/server.ts"
-    },
-    "dependencies": {
-        "@template/shared": "workspace:*",
-        "better-auth": "^1.4.18",
-        "express": "^5.2.1",
-        "zod": "^4.3.6"
-    },
-    "devDependencies": {
-        "@types/express": "^5.0.6",
-        "@types/node": "^25.1.0"
-    }
+  "name": "@template/auth",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahm4dd/template-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahm4dd/template-backend/issues"
+  },
+  "homepage": "https://github.com/ahm4dd/template-backend#readme",
+  "scripts": {
+    "dev": "node --watch --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.development --env-file-if-exists .env.development.local ./src/server.ts",
+    "start": "node --env-file .env --env-file-if-exists .env.local --env-file-if-exists .env.production --env-file-if-exists .env.production.local ./src/server.ts",
+    "auth:generate": "npx @better-auth/cli generate -y",
+    "auth:migrate": "npx @better-auth/cli migrate -y",
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrate": "npx drizzle-kit migrate",
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@template/shared": "workspace:*",
+    "better-auth": "^1.4.18",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "pg": "^8.18.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.1.0",
+    "@types/pg": "^8.16.0",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1"
+  }
 }

@@ -16,6 +16,7 @@ export default [
             globals: {
                 process: 'readonly',
                 console: 'readonly',
+                URL: 'readonly',
             },
         },
         plugins: {
@@ -32,8 +33,6 @@ export default [
                     caughtErrorsIgnorePattern: '^_',
                 },
             ],
-            // Enforce consistent indentation (4 spaces in this case)
-            indent: ['error', 4],
             // Enforce the use of single quotes for strings
             quotes: ['error', 'single'],
             // Enforce semicolons at the end of statements
@@ -48,6 +47,8 @@ export default [
             'prettier/prettier': [
                 'error',
                 {
+                    tabWidth: 2,
+                    printWidth: 100,
                     singleQuote: true,
                     semi: true,
                 },

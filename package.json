@@ -1,16 +1,17 @@
 {
     "name": "template-backend",
+    "packageManager": "pnpm@10.26.2",
     "private": true,
     "workspaces": [
         "services/*",
         "packages/*"
     ],
     "scripts": {
-        "dev": "pnpm --filter @template/api dev",
-        "start": "pnpm --filter @template/api start",
-        "lint": "eslint . --ext .ts",
-        "typecheck": "tsc -p services/api && tsc -p services/auth && tsc -p packages/shared",
-        "format": "prettier --write .",
+        "dev": "turbo run dev --parallel",
+        "start": "turbo run start --parallel",
+        "lint": "turbo run lint",
+        "typecheck": "turbo run typecheck",
+        "format": "turbo run format",
         "db:generate": "pnpm --filter @template/api db:generate",
         "db:migrate": "pnpm --filter @template/api db:migrate"
     },
@@ -22,6 +23,7 @@
         "eslint-plugin-prettier": "^5.5.5",
         "jiti": "^2.6.1",
         "prettier": "^3.8.1",
+        "turbo": "^2.7.4",
         "typescript": "^5.9.3"
     }
 }
