@@ -1,5 +1,7 @@
 # Template Backend Monorepo
 
+> This template was discontinued as it was only developed for learning.
+
 A monorepo starter for backend services (API + Auth) with shared tooling.
 
 ## Structure
